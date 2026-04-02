@@ -1,0 +1,142 @@
+# ============================================================
+# Job Application Agent - Configuration
+# ============================================================
+
+# --- Your Profile ---
+profile:
+  first_name: "Your First Name"
+  last_name: "Your Last Name"
+  email: "your.email@example.com"
+  phone: "+1-XXX-XXX-XXXX"
+  location: "Wichita, KS"
+  linkedin_url: "https://linkedin.com/in/yourprofile"
+  github_url: "https://github.com/yourusername"
+  portfolio_url: ""
+  
+  # Years of experience (used for form fields)
+  years_of_experience: 5
+  
+  # Education
+  education:
+    - degree: "Bachelor of Science"
+      field: "Computer Science"
+      university: "Your University"
+      graduation_year: 2020
+      gpa: "3.8"
+
+  # Work authorization
+  work_authorization:
+    authorized_us: true
+    require_sponsorship: false
+    authorized_countries: ["US", "India"]
+
+  # Demographic info (optional, for EEO forms)
+  demographics:
+    gender: ""          # Male, Female, Non-binary, Prefer not to say
+    race_ethnicity: ""  # Prefer not to say, etc.
+    veteran_status: ""  # Not a veteran, Prefer not to say, etc.
+    disability: ""      # No, Prefer not to say, etc.
+
+# --- Resume & Cover Letter ---
+documents:
+  # Path to your default resume (PDF)
+  resume_path: "resumes/resume.pdf"
+  
+  # Path to your default cover letter (PDF, optional)
+  cover_letter_path: ""
+  
+  # If true, uses OpenAI to generate tailored cover letters per job
+  generate_cover_letters: false
+
+# --- Job Search Preferences ---
+search:
+  # Keywords / job titles to search for
+  keywords:
+    - "Investment Analyst"
+    - "Equity Research Analyst"
+    - "Data Scientist"
+    - "Quantitative Analyst"
+    - "Financial Analyst"
+  
+  # Locations to search in
+  locations:
+    - "United States"
+    - "Remote"
+  
+  # Experience level filters
+  experience_levels:
+    - "entry_level"
+    - "mid_senior"
+    - "associate"
+  
+  # Job type filters
+  job_types:
+    - "full_time"
+  
+  # Date posted filter: past_24h, past_week, past_month
+  date_posted: "past_week"
+  
+  # Maximum number of applications per run
+  max_applications_per_run: 50
+  
+  # Blacklisted companies (skip these)
+  blacklist_companies: []
+  
+  # Only apply to jobs matching these patterns (regex supported)
+  title_include_patterns: []
+  
+  # Skip jobs matching these patterns
+  title_exclude_patterns:
+    - "(?i)senior director"
+    - "(?i)VP "
+    - "(?i)chief"
+
+# --- Platform Credentials ---
+# WARNING: Store passwords securely. Consider using environment variables.
+# You can set: LINKEDIN_EMAIL, LINKEDIN_PASSWORD, INDEED_EMAIL, INDEED_PASSWORD
+platforms:
+  linkedin:
+    enabled: true
+    email: ""       # or set LINKEDIN_EMAIL env var
+    password: ""    # or set LINKEDIN_PASSWORD env var
+    
+  indeed:
+    enabled: true
+    email: ""       # or set INDEED_EMAIL env var
+    password: ""    # or set INDEED_PASSWORD env var
+
+# --- OpenAI Configuration (for AI-powered form filling) ---
+openai:
+  api_key: ""  # or set OPENAI_API_KEY env var
+  model: "gpt-4o"
+  
+  # Your skills summary for the AI to reference when answering questions
+  skills_summary: |
+    Experienced in financial analysis, equity research, portfolio management,
+    Python programming, data science, machine learning, and quantitative analysis.
+    Strong background in fundamental and technical stock analysis, financial modeling,
+    and AI applications in finance.
+
+# --- Browser Settings ---
+browser:
+  headless: false          # Set to true for background operation
+  slow_mo: 100             # Milliseconds delay between actions (anti-detection)
+  timeout: 30000           # Default timeout in ms
+  user_agent: ""           # Custom user agent (leave empty for default)
+  
+  # Anti-detection settings
+  stealth:
+    random_delays: true         # Add random delays between actions
+    min_delay_ms: 500           # Minimum random delay
+    max_delay_ms: 2000          # Maximum random delay
+    human_like_typing: true     # Type characters one by one with random speed
+    typing_min_delay_ms: 50
+    typing_max_delay_ms: 150
+
+# --- Logging ---
+logging:
+  level: "INFO"               # DEBUG, INFO, WARNING, ERROR
+  log_to_file: true
+  log_dir: "logs"
+  screenshot_on_error: true   # Take screenshot when an error occurs
+  screenshot_dir: "logs/screenshots"
