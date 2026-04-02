@@ -1,0 +1,6 @@
+playwright==1.49.1
+pyyaml==6.0.2
+openai==1.58.1
+rich==13.9.4
+click==8.1.7
+python-dotenv==1.0.1

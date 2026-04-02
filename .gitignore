@@ -1,0 +1,14 @@
+# Secrets
+.env
+config.yaml
+
+# Data
+data/applications.csv
+logs/
+resumes/*.pdf
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
